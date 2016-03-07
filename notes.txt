@@ -1,0 +1,22 @@
+Project description:
+  The user inputs a string of text, and then clicks a button which causes a some words in the text to be replaced by either a synonym or the dictionary definition of each. Through several iterations the user observes how important or unimportant word choice is in constructing meaning for that particular text.
+  Inputs: Any text, prose, poetry, rhetoric, etc.
+  Outputs: Transformed text, insight into how language works
+
+Technologies to implement:
+  HTML and CSS for page layout and styling
+  Javascript for logic and jQuery for DOM manipulation
+  AJAX and JSON for API requests
+  Miriam Webster dictionary API
+
+Feature list:
+  One box for input text
+  One box for converted text
+  Side panel for parameters
+    What percentage of the text to convert
+    Highlight changes?
+
+Exclude conjunctions and pronouns
+
+
+Only in the south, where a group of fists and fingers are thrust up through the soil, is the endless expanse interrupted. These fists and fingers are the Marabar Hills, containing the extraordinary caves.
