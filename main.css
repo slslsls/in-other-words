@@ -2,39 +2,103 @@
   box-sizing: border-box;
 }
 
+#top-row {
+  padding: 0px;
+}
+
 header {
-  height: 90px;
+  height: 110px;
 }
 
 header > h1 {
-  position: relative;
+  position: fixed;
   top: -15px;
-  left: 10px;
+  left: 40px;
   color: white;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .header-subtext {
-  color: #87D296;
+  color: #7BC383;
 }
 
 #banner {
-  height: 90px;
+  height: 110px;
   padding: 0px;
   z-index: 10;
-  padding-right: 30px;
+  padding-right: 260px;
   text-align: right;
+  display: block;
+  min-width: 1%;
 }
 
 #banner-text {
-  font-size: 50px;
+  font-size: 70px;
+  color: #CCDE5C;
+  font-family: 'Times New Roman';
+  margin-top: 36px;
+
+}
+
+#banner-text-another {
+  font-size: 40px;
   color: white;
   font-family: 'Times New Roman';
-  margin-top: 37px;
+  margin-top:47px;
+  text-align: left;
+}
+
+#vertical-banner {
+  height: 780px;
+  width: 175px;
+  position: absolute;
+  background-color: blue;
+  right: 80px;
+  font-size: 40px;
+  color: white;
+  font-family: 'Times New Roman';
+  z-index: 20;
+  padding: 0px;
+}
+
+#vertical-banner-1 {
+  height: 110px;
+  width: 175px;
+  font-size: 40px;
+  color: white;
+  font-family: 'Times New Roman';
+  padding-top: 10px;
+}
+
+#vertical-banner-2 {
+  height: 350px;
+  width: 175px;
+  font-size: 40px;
+  color: #969C81;
+  font-family: 'Times New Roman';
+  padding: 0px;
+}
+
+#vertical-banner-3 {
+  height: 290px;
+  width: 175px;
+  font-size: 40px;
+  color:#AEDEF6;
+  font-family: 'Times New Roman';
+  padding: 0px;
+}
+
+#vertical-banner-4 {
+  height: 30px;
+  width: 175px;
+  font-size: 40px;
+  color: white;
+  font-family: 'Times New Roman';
+  padding: 0px;
 }
 
 #left-panel {
-  height: 690px;
+  height: 670px;
 }
 
 #left-panel-overlap {
@@ -47,16 +111,17 @@ header > h1 {
 }
 
 #main-section {
-  height: 690px;
+  height: 670px;
 }
 
 #main-section-text {
   width: 50px;
   font-size: 40px;
-  color: #FFC99C;
+  color: #FFA149;
   font-family: 'Times New Roman';
   z-index: 2;
   position: absolute;
+  padding-left: 0px;
 }
 
 textarea {
@@ -83,6 +148,7 @@ textarea {
   overflow: scroll;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+  z-index: 3;
 }
 
 .orange {
@@ -107,4 +173,8 @@ textarea {
 
 .orangewhite {
   background-color: #FFC99C;
+}
+
+.blueorange {
+  background-color: #8A9273;
 }
