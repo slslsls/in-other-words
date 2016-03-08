@@ -19,4 +19,9 @@ Feature list:
 Exclude conjunctions and pronouns
 
 
-Only in the south, where a group of fists and fingers are thrust up through the soil, is the endless expanse interrupted. These fists and fingers are the Marabar Hills, containing the extraordinary caves.
+Only in the south, where a group of fists and fingers are thrust up through the soil, is the endless expanse interrupted.
+
+
+data (object)
+  noun/adj/verb (object)
+    syn/sim (array)
