@@ -4,17 +4,18 @@ var wordsToIgnore = ["FOR", "AND", "NOR", "BUT", "OR", "YET", "SO", "AFTER", "AL
 "ITSELF", "THEMSELVES", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "TWENTY", "THIRTY", "FORTY", "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY",
 "HUNDRED", "THOUSAND", "MILLION", "BILLION", "TRILLION", "INTO", "IN", "THE", "OF", "WITH", "SOME", "A", "IT", "TO", "IS"];
 var $text;
-var $resultsSection = $('#results-section');
 var $textArray = [];
-var Text = {};
+var newArray = [];
+var $resultsSection = $('#results-section');
 
-function convertWord(word, propertyNumber) {
+function convertWord(word, index) {
   $.ajax({
     type: 'GET',
     dataType: 'json',
     url: 'http://words.bighugelabs.com/api/2/37c6f565170ee01f01539b911ed9dfb5/' + word + '/json',
     error: function() {
-      console.log('"' + word + '" was ignored')
+      newArray[index] = word;
+      console.log('"' + word + '" was ignored');
     },
     success: function(data) {
       if (data.noun && !(wordsToIgnore.includes(word.toUpperCase()))) {
@@ -23,7 +24,7 @@ function convertWord(word, propertyNumber) {
           return Math.round(Math.random() * arrayLength)
         }
 
-        Text[propertyNumber] = data.noun.syn[random()]
+        newArray[index] = data.noun.syn[random()];
       }
       else if (data.adjective && !(wordsToIgnore.includes(word.toUpperCase()))) {
         var arrayLength = data.adjective.syn.length - 1;
@@ -31,7 +32,7 @@ function convertWord(word, propertyNumber) {
           return Math.round(Math.random() * arrayLength)
         }
 
-        Text[propertyNumber] = data.adjective.syn[random()]
+        newArray[index] = data.adjective.syn[random()];
       }
       else if (data.verb && !(wordsToIgnore.includes(word.toUpperCase()))) {
         var arrayLength = data.verb.syn.length - 1;
@@ -39,7 +40,7 @@ function convertWord(word, propertyNumber) {
           return Math.round(Math.random() * arrayLength)
         }
 
-        Text[propertyNumber] = data.verb.syn[random()]
+        newArray[index] = data.verb.syn[random()];
       }
       else if (data.adverb && !(wordsToIgnore.includes(word.toUpperCase()))) {
         var arrayLength = data.adverb.syn.length - 1;
@@ -47,10 +48,10 @@ function convertWord(word, propertyNumber) {
           return Math.round(Math.random() * arrayLength)
         }
 
-        Text[propertyNumber] = data.adverb.syn[random()]
+        newArray[index] = data.adverb.syn[random()];
       }
       else {
-        Text[propertyNumber] = word;
+        newArray.push(word);
         console.log('"' + word + '" was ignored');
       }
     }
@@ -60,20 +61,17 @@ function convertWord(word, propertyNumber) {
 $('textarea').on('change', function() {
   $text = $('textarea').val();
   $textArray = $text.split(' ');
-  Text = {};
-
-  for (i = 0; i < $textArray.length; i++) {
-    Text[i] = $textArray[i]
-  }
 });
 
 $('#convert').on('click', function() {
-  for (i = 0; i < Object.keys(Text).length; i++) {
-    convertWord(Text[i], i);
-    $textArray[i] = Text[i];
+  var length = $textArray.length;
+  newArray = [];
+
+  for (i = 0; i < length; i++) {
+    convertWord($textArray[i], i);
   }
-  // $resultsSection.append('<p id="results">' + $textArray.join(' ') + '</p>')
-})
+  $resultsSection.append('<p id="results">' + newArray.join(' ') + '</p>');
+});
 
 
 
