@@ -55,6 +55,9 @@ function convertWord(word, index) {
         console.log('"' + word + '" was ignored');
       }
     }
+  }).done(function () {
+    $('#results').remove();
+    $resultsSection.append('<p id="results">' + newArray.join(' ') + '</p>');
   })
 };
 
@@ -63,6 +66,9 @@ $('textarea').on('change', function() {
   $textArray = $text.split(' ');
 });
 
+
+
+
 $('#convert').on('click', function() {
   var length = $textArray.length;
   newArray = [];
@@ -70,7 +76,10 @@ $('#convert').on('click', function() {
   for (i = 0; i < length; i++) {
     convertWord($textArray[i], i);
   }
-  $resultsSection.append('<p id="results">' + newArray.join(' ') + '</p>');
+
+
+  // $('#results').remove();
+  // $resultsSection.append('<p id="results">' + newArray.join(' ') + '</p>');
 });
 
 
