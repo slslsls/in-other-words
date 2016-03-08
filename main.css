@@ -48,6 +48,23 @@ header > h1 {
   text-align: left;
 }
 
+#convert {
+  height: 150px;
+  width: 150px;
+  color: white;
+  background-color: green;
+  position: absolute;
+  margin-left: 45%;
+  margin-top: 370px;
+  padding: 0px;
+  font-size: 100px;
+  font-weight: bold;
+  z-index: 20;
+  border-radius: 100%;
+  border: none;
+  box-shadow: 0px 0px 30px 5px green;
+}
+
 #vertical-banner {
   height: 780px;
   width: 175px;
