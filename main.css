@@ -14,26 +14,23 @@ header > h1 {
   font-size: 25px;
 }
 
+.header-subtext {
+  color: #87D296;
+}
+
 #banner {
   height: 90px;
   padding: 0px;
   z-index: 10;
+  padding-right: 30px;
+  text-align: right;
 }
 
 #banner-text {
-  position: relative;
-  top: 48px;
-  font-size: 40px;
+  font-size: 50px;
   color: white;
   font-family: 'Times New Roman';
-  padding-left: 60px;
-}
-
-#banner-subtext {
-  font-size: 18px;
-  color: white;
-  font-family: 'Times New Roman';
-  font-style: italic;
+  margin-top: 37px;
 }
 
 #left-panel {
@@ -54,11 +51,12 @@ header > h1 {
 }
 
 #main-section-text {
-  font-size: 100px;
-  color: white;
+  width: 50px;
+  font-size: 40px;
+  color: #FFC99C;
   font-family: 'Times New Roman';
-  position: absolute;
   z-index: 2;
+  position: absolute;
 }
 
 textarea {
@@ -72,7 +70,6 @@ textarea {
   overflow: scroll;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  z-index: 3;
 }
 
 #results-section {
@@ -106,4 +103,8 @@ textarea {
 
 .bluewhite {
   background-color: #8AD2F6;
+}
+
+.orangewhite {
+  background-color: #FFC99C;
 }
