@@ -4,6 +4,7 @@ var wordsToIgnore = ["FOR", "AND", "NOR", "BUT", "OR", "YET", "SO", "AFTER", "AL
 "ITSELF", "THEMSELVES", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "TWENTY", "THIRTY", "FORTY", "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY",
 "HUNDRED", "THOUSAND", "MILLION", "BILLION", "TRILLION", "INTO", "IN", "THE", "OF", "WITH", "SOME", "A", "IT", "TO", "IS"];
 var $text;
+var $resultsSection = $('#results-section');
 var $textArray = [];
 var Text = {};
 
@@ -52,7 +53,6 @@ function convertWord(word, propertyNumber) {
         Text[propertyNumber] = word;
         console.log('"' + word + '" was ignored');
       }
-      console.log(data)
     }
   })
 };
@@ -68,11 +68,11 @@ $('textarea').on('change', function() {
 });
 
 $('#convert').on('click', function() {
-  for (i = 0; i < $textArray.length; i++) {
-    var $results = $('#results');
-
+  for (i = 0; i < Object.keys(Text).length; i++) {
     convertWord(Text[i], i);
+    $textArray[i] = Text[i];
   }
+  // $resultsSection.append('<p id="results">' + $textArray.join(' ') + '</p>')
 })
 
 

@@ -9,9 +9,9 @@ header {
 header > h1 {
   position: relative;
   top: -15px;
-  left: -20px;
-  z-index: 10;
+  left: 10px;
   color: white;
+  font-size: 25px;
 }
 
 #banner {
@@ -22,15 +22,15 @@ header > h1 {
 
 #banner-text {
   position: relative;
-  top: 47px;
+  top: 48px;
   font-size: 40px;
   color: white;
   font-family: 'Times New Roman';
-  padding-left: 100px;
+  padding-left: 60px;
 }
 
 #banner-subtext {
-  font-size: 20px;
+  font-size: 18px;
   color: white;
   font-family: 'Times New Roman';
   font-style: italic;
@@ -40,29 +40,70 @@ header > h1 {
   height: 690px;
 }
 
+#left-panel-overlap {
+  height: 290px;
+  width: 400px;
+  margin-top: -10px;
+  margin-left: 20px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
 #main-section {
   height: 690px;
+}
+
+#main-section-text {
+  font-size: 100px;
+  color: white;
+  font-family: 'Times New Roman';
+  position: absolute;
+  z-index: 2;
 }
 
 textarea {
   height: 290px;
   margin-top: 30px;
-  margin-left: 20px;
+  margin-left: -15px;
   border: none;
   padding: 20px;
   resize: none;
   font-size: 20px;
   overflow: scroll;
-  border-radius: 5px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 3;
 }
 
-#results {
+#results-section {
   height: 290px;
   background-color: white;
   margin-top: 30px;
-  margin-left: 20px;
+  position: relative;
+  right: -140px;
   padding: 20px;
   font-size: 20px;
   overflow: scroll;
-  border-radius: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.orange {
+  background-color: #FF8919;
+}
+
+.green {
+  background-color: #B4CC14;
+}
+
+.blue {
+  background-color: #00A0E3;
+}
+
+.bluegreen {
+  background-color: #63BA6E;
+}
+
+.bluewhite {
+  background-color: #8AD2F6;
 }
