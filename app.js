@@ -16,7 +16,7 @@ function convertNoun(responseData, indexNumber) {
     return Math.round(Math.random() * arrayLength)
   }
 
-  newArray[indexNumber] = responseData.noun.syn[random()];
+  newArray[indexNumber] = responseData.noun.syn[random()] + suffix;
 };
 
 function convertAdjective(responseData, indexNumber) {
@@ -25,7 +25,7 @@ function convertAdjective(responseData, indexNumber) {
     return Math.round(Math.random() * arrayLength)
   }
 
-  newArray[indexNumber] = responseData.adjective.syn[random()];
+  newArray[indexNumber] = responseData.adjective.syn[random()] + suffix;
 };
 
 function convertVerb(responseData, indexNumber) {
@@ -34,7 +34,7 @@ function convertVerb(responseData, indexNumber) {
     return Math.round(Math.random() * arrayLength)
   }
 
-  newArray[indexNumber] = responseData.verb.syn[random()];
+  newArray[indexNumber] = responseData.verb.syn[random()] + suffix;
 };
 
 function convertAdverb(responseData, indexNumber) {
@@ -43,10 +43,32 @@ function convertAdverb(responseData, indexNumber) {
     return Math.round(Math.random() * arrayLength)
   }
 
-  newArray[indexNumber] = responseData.adverb.syn[random()];
+  newArray[indexNumber] = responseData.adverb.syn[random()] + suffix;
 };
 
+function setSuffix(wordToCheck) {
+  if (wordToCheck.slice(-1) === ',') {
+    suffix = ','
+  }
+  else if (wordToCheck.slice(-1) === '.') {
+    suffix = '.'
+  }
+  else if (wordToCheck.slice(-1) === 's') {
+    suffix = 's'
+  }
+  else if (wordToCheck.slice(-2) === 'ed') {
+    suffix = 'ed'
+  }
+  else if (wordToCheck.slice(-3) === 'ing') {
+    suffix = 'ing'
+  }
+  else {
+    suffix = ''
+  }
+}
+
 function convertWord(word, index) {
+  setSuffix(word);
   $.ajax({
     type: 'GET',
     dataType: 'json',
