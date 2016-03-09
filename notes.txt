@@ -15,13 +15,3 @@ Feature list:
   Side panel for parameters
     What percentage of the text to convert
     Highlight changes?
-
-Exclude conjunctions and pronouns
-
-
-Only in the south, where a group of fists and fingers are thrust up through the soil, is the endless expanse interrupted.
-
-
-data (object)
-  noun/adj/verb (object)
-    syn/sim (array)

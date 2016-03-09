@@ -1,3 +1,4 @@
+var myKey = config.myKey;
 var wordsToIgnore = ["FOR", "AND", "NOR", "BUT", "OR", "YET", "SO", "AFTER", "ALTHOUGH", "AS", "BECAUSE", "BEFORE", "EVEN", "IF", "LEST", "NOW", "THAN", "THAT", "THOUGH",
 "TIL", "UNLESS", "UNTIL", "WHEN", "WHENEVER", "WHEREAS", "WHERE", "WHEREVER", "WHETHER", "WHICH", "WHILE", "WHO", "WHOEVER", "WHY", "WHAT", "BOTH", "ALSO", "EITHER", "NEITHER", "I",
 "ME", "WE", "US", "YOU", "SHE", "HER", "HE", "HIM", "IT", "THEY", "THEM", "THIS", "THESE", "THOSE", "MYSELF", "OURSELVES", "YOURSELF", "YOURSELVES", "HIMSELF", "HERSELF",
@@ -48,7 +49,7 @@ function convertWord(word, index) {
   $.ajax({
     type: 'GET',
     dataType: 'json',
-    url: 'http://words.bighugelabs.com/api/2/37c6f565170ee01f01539b911ed9dfb5/' + word + '/json',
+    url: 'http://words.bighugelabs.com/api/2/' + myKey + '/' + word + '/json',
     error: function() {
       newArray[index] = word;
       console.log('"' + word + '" was ignored');
