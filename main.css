@@ -142,6 +142,18 @@ header > h1 {
 
 #main-section {
   height: 670px;
+  overflow: hidden;
+}
+
+#main-section-bg-text {
+  height: 700px;
+  width: 100%;
+  position: absolute;
+  margin: -30px;
+  color: #FF9531;
+  font-family: 'adobe-caslon-pro', Times, Georgia, serif;
+  font-size: 150px;
+  line-height: 120px;
 }
 
 textarea {
@@ -157,7 +169,7 @@ textarea {
   border-bottom-right-radius: 10px;
   color: #4F4D4D;
   font-family: 'adobe-caslon-pro', Times, Georgia, serif;
-  transition-duration: .5s;
+  transition-duration: .3s;
 }
 
 #results-section {
