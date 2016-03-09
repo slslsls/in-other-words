@@ -104,6 +104,7 @@ function convertWord(word, index) {
 $('textarea').on('change', function() {
   $text = $('textarea').val();
   $textArray = $text.split(' ');
+  suffix = '';
 });
 
 $('#convert').on('click', function() {
@@ -122,6 +123,8 @@ $('#convert').on('click', function() {
       } else {
         newArray[i] = $textArray[i];
         console.log('"' + $textArray[i] + '" was ignored at random');
+        $('#results').remove();
+        $resultsSection.append('<p id="results">' + newArray.join(' ') + '</p>');
       }
     }
   }
