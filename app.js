@@ -8,6 +8,42 @@ var $textArray = [];
 var newArray = [];
 var $resultsSection = $('#results-section');
 
+function convertNoun(word) {
+  var arrayLength = data.noun.syn.length - 1;
+  var random = function() {
+    return Math.round(Math.random() * arrayLength)
+  }
+
+  newArray[index] = data.noun.syn[random()];
+};
+
+function convertAdjective(word) {
+  var arrayLength = data.adjective.syn.length - 1;
+  var random = function() {
+    return Math.round(Math.random() * arrayLength)
+  }
+
+  newArray[index] = data.adjective.syn[random()];
+};
+
+function convertVerb(word) {
+  var arrayLength = data.verb.syn.length - 1;
+  var random = function() {
+    return Math.round(Math.random() * arrayLength)
+  }
+
+  newArray[index] = data.verb.syn[random()];
+};
+
+function convertAdverb(word) {
+  var arrayLength = data.adverb.syn.length - 1;
+  var random = function() {
+    return Math.round(Math.random() * arrayLength)
+  }
+
+  newArray[index] = data.adverb.syn[random()];
+};
+
 function convertWord(word, index) {
   $.ajax({
     type: 'GET',
@@ -19,36 +55,16 @@ function convertWord(word, index) {
     },
     success: function(data) {
       if (data.noun && !(wordsToIgnore.includes(word.toUpperCase()))) {
-        var arrayLength = data.noun.syn.length - 1;
-        var random = function() {
-          return Math.round(Math.random() * arrayLength)
-        }
-
-        newArray[index] = data.noun.syn[random()];
+        convertNoun(word)
       }
       else if (data.adjective && !(wordsToIgnore.includes(word.toUpperCase()))) {
-        var arrayLength = data.adjective.syn.length - 1;
-        var random = function() {
-          return Math.round(Math.random() * arrayLength)
-        }
-
-        newArray[index] = data.adjective.syn[random()];
+        convertAdjective(word)
       }
       else if (data.verb && !(wordsToIgnore.includes(word.toUpperCase()))) {
-        var arrayLength = data.verb.syn.length - 1;
-        var random = function() {
-          return Math.round(Math.random() * arrayLength)
-        }
-
-        newArray[index] = data.verb.syn[random()];
+        convertVerb(word)
       }
       else if (data.adverb && !(wordsToIgnore.includes(word.toUpperCase()))) {
-        var arrayLength = data.adverb.syn.length - 1;
-        var random = function() {
-          return Math.round(Math.random() * arrayLength)
-        }
-
-        newArray[index] = data.adverb.syn[random()];
+        convertAdverb(word)
       }
       else {
         newArray.push(word);
