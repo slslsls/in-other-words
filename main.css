@@ -137,9 +137,19 @@ header > h1 {
   height: 290px;
   width: 400px;
   margin-top: -10px;
-  margin-left: 20px;
+  margin-left: 80px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+}
+
+.definitions {
+  color: #8AD2F6;
+  margin-top: 50px;
+}
+
+h4 {
+  color: white;
+  margin-top: 50px;
 }
 
 #main-section {
