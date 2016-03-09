@@ -66,20 +66,25 @@ $('textarea').on('change', function() {
   $textArray = $text.split(' ');
 });
 
-
-
-
 $('#convert').on('click', function() {
   var length = $textArray.length;
   newArray = [];
 
-  for (i = 0; i < length; i++) {
-    convertWord($textArray[i], i);
+  if ($('textarea').val() === '') {
+    $('textarea')[0].style.backgroundColor = "red";
+    $('textarea')[0].focus();
+    window.setTimeout(setTextAreaBG, 300);
+  }
+  else {
+    for (i = 0; i < length; i++) {
+      convertWord($textArray[i], i);
+    }
   }
 });
 
-
-
+function setTextAreaBG() {
+  $('textarea')[0].style.backgroundColor = "white";
+};
 
 //need to get rid of periods, commas, etc from the text array
 //allow for -ing, -s, and -ed

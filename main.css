@@ -157,6 +157,7 @@ textarea {
   border-bottom-right-radius: 10px;
   color: #4F4D4D;
   font-family: 'adobe-caslon-pro', Times, Georgia, serif;
+  transition-duration: .5s;
 }
 
 #results-section {
