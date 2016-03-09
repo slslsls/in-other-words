@@ -8,6 +8,7 @@ var $text;
 var $textArray = [];
 var newArray = [];
 var $resultsSection = $('#results-section');
+var suffix = '';
 
 function convertNoun(responseData, indexNumber) {
   var arrayLength = responseData.noun.syn.length - 1;
@@ -52,7 +53,7 @@ function convertWord(word, index) {
     url: 'http://words.bighugelabs.com/api/2/' + myKey + '/' + word + '/json',
     error: function() {
       newArray[index] = word;
-      console.log('"' + word + '" was ignored');
+      console.log('"' + word + '" was ignored because of an error');
     },
     success: function(data) {
       if (data.noun && !(wordsToIgnore.includes(word.toUpperCase()))) {
@@ -69,7 +70,7 @@ function convertWord(word, index) {
       }
       else {
         newArray[index] = word;
-        console.log('"' + word + '" was ignored');
+        console.log('"' + word + '" was ignored because it\'s a boring word');
       }
     }
   }).done(function () {
@@ -94,7 +95,12 @@ $('#convert').on('click', function() {
   }
   else {
     for (i = 0; i < length; i++) {
-      convertWord($textArray[i], i);
+      if (Math.random() > 0.5) {
+        convertWord($textArray[i], i);
+      } else {
+        newArray[i] = $textArray[i];
+        console.log('"' + $textArray[i] + '" was ignored at random');
+      }
     }
   }
 });
