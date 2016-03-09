@@ -8,40 +8,40 @@ var $textArray = [];
 var newArray = [];
 var $resultsSection = $('#results-section');
 
-function convertNoun(word) {
-  var arrayLength = data.noun.syn.length - 1;
+function convertNoun(responseData, indexNumber) {
+  var arrayLength = responseData.noun.syn.length - 1;
   var random = function() {
     return Math.round(Math.random() * arrayLength)
   }
 
-  newArray[index] = data.noun.syn[random()];
+  newArray[indexNumber] = responseData.noun.syn[random()];
 };
 
-function convertAdjective(word) {
-  var arrayLength = data.adjective.syn.length - 1;
+function convertAdjective(responseData, indexNumber) {
+  var arrayLength = responseData.adjective.syn.length - 1;
   var random = function() {
     return Math.round(Math.random() * arrayLength)
   }
 
-  newArray[index] = data.adjective.syn[random()];
+  newArray[indexNumber] = responseData.adjective.syn[random()];
 };
 
-function convertVerb(word) {
-  var arrayLength = data.verb.syn.length - 1;
+function convertVerb(responseData, indexNumber) {
+  var arrayLength = responseData.verb.syn.length - 1;
   var random = function() {
     return Math.round(Math.random() * arrayLength)
   }
 
-  newArray[index] = data.verb.syn[random()];
+  newArray[indexNumber] = responseData.verb.syn[random()];
 };
 
-function convertAdverb(word) {
-  var arrayLength = data.adverb.syn.length - 1;
+function convertAdverb(responseData, indexNumber) {
+  var arrayLength = responseData.adverb.syn.length - 1;
   var random = function() {
     return Math.round(Math.random() * arrayLength)
   }
 
-  newArray[index] = data.adverb.syn[random()];
+  newArray[indexNumber] = responseData.adverb.syn[random()];
 };
 
 function convertWord(word, index) {
@@ -55,19 +55,19 @@ function convertWord(word, index) {
     },
     success: function(data) {
       if (data.noun && !(wordsToIgnore.includes(word.toUpperCase()))) {
-        convertNoun(word)
+        convertNoun(data, index)
       }
       else if (data.adjective && !(wordsToIgnore.includes(word.toUpperCase()))) {
-        convertAdjective(word)
+        convertAdjective(data, index)
       }
       else if (data.verb && !(wordsToIgnore.includes(word.toUpperCase()))) {
-        convertVerb(word)
+        convertVerb(data, index)
       }
       else if (data.adverb && !(wordsToIgnore.includes(word.toUpperCase()))) {
-        convertAdverb(word)
+        convertAdverb(data, index)
       }
       else {
-        newArray.push(word);
+        newArray[index] = word;
         console.log('"' + word + '" was ignored');
       }
     }
