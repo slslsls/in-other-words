@@ -55,14 +55,14 @@ function convertWord(word, index) {
       console.log('"' + word + '" was ignored because of an error');
     },
     success: function(data) {
-      if (data.noun && !(wordsToIgnore.includes(word.toUpperCase()))) {
+      if (data.verb && !(wordsToIgnore.includes(word.toUpperCase()))) {
+        convertVerb(data, index)
+      }
+      else if (data.noun && !(wordsToIgnore.includes(word.toUpperCase()))) {
         convertNoun(data, index)
       }
       else if (data.adjective && !(wordsToIgnore.includes(word.toUpperCase()))) {
         convertAdjective(data, index)
-      }
-      else if (data.verb && !(wordsToIgnore.includes(word.toUpperCase()))) {
-        convertVerb(data, index)
       }
       else if (data.adverb && !(wordsToIgnore.includes(word.toUpperCase()))) {
         convertAdverb(data, index)
@@ -94,7 +94,7 @@ $('#convert').on('click', function() {
   }
   else {
     for (i = 0; i < length; i++) {
-      if (Math.random() > 0.5) {
+      if (Math.random() < 0.4) {
         convertWord($textArray[i], i);
       } else {
         newArray[i] = $textArray[i];
