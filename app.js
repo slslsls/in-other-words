@@ -76,10 +76,6 @@ $('#convert').on('click', function() {
   for (i = 0; i < length; i++) {
     convertWord($textArray[i], i);
   }
-
-
-  // $('#results').remove();
-  // $resultsSection.append('<p id="results">' + newArray.join(' ') + '</p>');
 });
 
 

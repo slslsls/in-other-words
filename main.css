@@ -144,16 +144,6 @@ header > h1 {
   height: 670px;
 }
 
-#main-section-text {
-  width: 50px;
-  font-size: 40px;
-  color: #FFA149;
-  font-family: 'Times New Roman';
-  z-index: 2;
-  position: absolute;
-  padding-left: 0px;
-}
-
 textarea {
   height: 290px;
   margin-top: 30px;
@@ -165,6 +155,8 @@ textarea {
   overflow: scroll;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  color: #4F4D4D;
+  font-family: 'adobe-caslon-pro', Times, Georgia, serif;
 }
 
 #results-section {
@@ -181,6 +173,8 @@ textarea {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   z-index: 3;
+  color: #4F4D4D;
+  font-family: 'adobe-caslon-pro', Times, Georgia, serif;
 }
 
 .orange {
