@@ -173,15 +173,20 @@ textarea {
   margin-top: 30px;
   margin-left: -15px;
   border: none;
-  padding: 20px;
+  border-left: 30px solid white;
+  padding: 30px;
   resize: none;
-  font-size: 20px;
+  font-size: 25px;
   overflow: scroll;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  color: #4F4D4D;
+  color: #736337;
   font-family: 'adobe-caslon-pro', Times, Georgia, serif;
   transition-duration: .3s;
+}
+
+textarea:focus {
+  outline: none;
 }
 
 #results-section {
@@ -193,12 +198,12 @@ textarea {
   padding-top: 80px;
   padding-left: 20px;
   padding-right: 310px;
-  font-size: 20px;
+  font-size: 25px;
   overflow: scroll;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   z-index: 3;
-  color: #4F4D4D;
+  color: #736337;
   font-family: 'adobe-caslon-pro', Times, Georgia, serif;
 }
 
