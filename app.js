@@ -3,12 +3,11 @@ var wordsToIgnore = ["FOR", "AND", "NOR", "BUT", "OR", "YET", "SO", "AFTER", "AL
 "TIL", "UNLESS", "UNTIL", "WHEN", "WHENEVER", "WHEREAS", "WHERE", "WHEREVER", "WHETHER", "WHICH", "WHILE", "WHO", "WHOEVER", "WHY", "WHAT", "BOTH", "ALSO", "EITHER", "NEITHER", "I",
 "ME", "WE", "US", "YOU", "SHE", "HER", "HE", "HIM", "IT", "THEY", "THEM", "THIS", "THESE", "THOSE", "MYSELF", "OURSELVES", "YOURSELF", "YOURSELVES", "HIMSELF", "HERSELF",
 "ITSELF", "THEMSELVES", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "TWENTY", "THIRTY", "FORTY", "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY",
-"HUNDRED", "THOUSAND", "MILLION", "BILLION", "TRILLION", "INTO", "IN", "THE", "OF", "WITH", "SOME", "A", "IT", "TO", "IS"];
+"HUNDRED", "THOUSAND", "MILLION", "BILLION", "TRILLION", "INTO", "IN", "THE", "OF", "WITH", "SOME", "A", "IT", "TO", "IS", "YOUR", "MY", "HIS", "HERS", "OURS"];
 var $text;
 var $textArray = [];
 var newArray = [];
 var $resultsSection = $('#results-section');
-var suffix = '';
 
 function convertNoun(responseData, indexNumber) {
   var arrayLength = responseData.noun.syn.length - 1;
@@ -16,7 +15,7 @@ function convertNoun(responseData, indexNumber) {
     return Math.round(Math.random() * arrayLength)
   }
 
-  newArray[indexNumber] = responseData.noun.syn[random()] + suffix;
+  newArray[indexNumber] = responseData.noun.syn[random()];
 };
 
 function convertAdjective(responseData, indexNumber) {
@@ -25,7 +24,7 @@ function convertAdjective(responseData, indexNumber) {
     return Math.round(Math.random() * arrayLength)
   }
 
-  newArray[indexNumber] = responseData.adjective.syn[random()] + suffix;
+  newArray[indexNumber] = responseData.adjective.syn[random()];
 };
 
 function convertVerb(responseData, indexNumber) {
@@ -34,7 +33,7 @@ function convertVerb(responseData, indexNumber) {
     return Math.round(Math.random() * arrayLength)
   }
 
-  newArray[indexNumber] = responseData.verb.syn[random()] + suffix;
+  newArray[indexNumber] = responseData.verb.syn[random()];
 };
 
 function convertAdverb(responseData, indexNumber) {
@@ -43,32 +42,10 @@ function convertAdverb(responseData, indexNumber) {
     return Math.round(Math.random() * arrayLength)
   }
 
-  newArray[indexNumber] = responseData.adverb.syn[random()] + suffix;
+  newArray[indexNumber] = responseData.adverb.syn[random()];
 };
 
-function setSuffix(wordToCheck) {
-  if (wordToCheck.slice(-1) === ',') {
-    suffix = ','
-  }
-  else if (wordToCheck.slice(-1) === '.') {
-    suffix = '.'
-  }
-  else if (wordToCheck.slice(-1) === 's') {
-    suffix = 's'
-  }
-  else if (wordToCheck.slice(-2) === 'ed') {
-    suffix = 'ed'
-  }
-  else if (wordToCheck.slice(-3) === 'ing') {
-    suffix = 'ing'
-  }
-  else {
-    suffix = ''
-  }
-}
-
 function convertWord(word, index) {
-  setSuffix(word);
   $.ajax({
     type: 'GET',
     dataType: 'json',
@@ -104,7 +81,6 @@ function convertWord(word, index) {
 $('textarea').on('change', function() {
   $text = $('textarea').val();
   $textArray = $text.split(' ');
-  suffix = '';
 });
 
 $('#convert').on('click', function() {
@@ -123,8 +99,6 @@ $('#convert').on('click', function() {
       } else {
         newArray[i] = $textArray[i];
         console.log('"' + $textArray[i] + '" was ignored at random');
-        $('#results').remove();
-        $resultsSection.append('<p id="results">' + newArray.join(' ') + '</p>');
       }
     }
   }
@@ -133,6 +107,3 @@ $('#convert').on('click', function() {
 function setTextAreaBG() {
   $('textarea')[0].style.backgroundColor = "white";
 };
-
-//need to get rid of periods, commas, etc from the text array
-//allow for -ing, -s, and -ed
