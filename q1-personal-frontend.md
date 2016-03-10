@@ -97,8 +97,8 @@
   * [Codebase](link to git repo)
 
 * Spencer Scarpelli
-  * [name of project](deployed url)
-  * [Codebase](link to git repo)
+  * [In Other Words](spencerscarpelli-inotherwords.surge.sh)
+  * [Codebase](https://github.com/spencerscarpelli/g21-projects)
 
 * Veronica Moreno
   * [name of project](deployed url)
