@@ -55,14 +55,14 @@ function convertWord(word, index) {
       console.log('"' + word + '" was ignored because of an error');
     },
     success: function(data) {
-      if (data.verb && !(wordsToIgnore.includes(word.toUpperCase()))) {
-        convertVerb(data, index)
-      }
-      else if (data.noun && !(wordsToIgnore.includes(word.toUpperCase()))) {
+      if (data.noun && !(wordsToIgnore.includes(word.toUpperCase()))) {
         convertNoun(data, index)
       }
       else if (data.adjective && !(wordsToIgnore.includes(word.toUpperCase()))) {
         convertAdjective(data, index)
+      }
+      else if (data.verb && !(wordsToIgnore.includes(word.toUpperCase()))) {
+        convertVerb(data, index)
       }
       else if (data.adverb && !(wordsToIgnore.includes(word.toUpperCase()))) {
         convertAdverb(data, index)
@@ -107,3 +107,8 @@ $('#convert').on('click', function() {
 function setTextAreaBG() {
   $('textarea')[0].style.backgroundColor = "white";
 };
+
+$('#reload').on('click', function() {
+  $('textarea').val($('#results')[0].textContent);
+  $('#results').remove();
+})
