@@ -91,6 +91,7 @@ header > h1 {
   font-weight: bold;
   border: none;
   text-shadow: 0px 0px 25px grey;
+  z-index: 20;
 }
 
 #reload:hover {
