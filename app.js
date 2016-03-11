@@ -13,6 +13,7 @@
     var newArray = [];
     var $resultsSection = $('#results-section');
     var $portions = $('.portions');
+    var isPlural = false;
     var portion = 0.4;
 
     function convertNoun(responseData, indexNumber) {
@@ -20,8 +21,12 @@
       var random = function() {
         return Math.round(Math.random() * arrayLength);
       };
-
-      newArray[indexNumber] = responseData.noun.syn[random()];
+      if (isPlural === false) {
+        newArray[indexNumber] = responseData.noun.syn[random()];
+      }
+      else {
+        newArray[indexNumber] = responseData.noun.syn[random()] + 's';
+      }
     }
 
     function convertAdjective(responseData, indexNumber) {
@@ -62,6 +67,12 @@
         },
         success: function(data) {
           if (data.noun && !wordsToIgnore.includes(word.toUpperCase())) {
+            if (word.slice(-1) === 's' && word.slice(-2) !== 'ss') {
+              isPlural = true;
+            }
+            else {
+              isPlural = false;
+            }
             convertNoun(data, index);
           }
           else if (data.adjective && !wordsToIgnore.includes(word.toUpperCase())) {
