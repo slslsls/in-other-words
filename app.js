@@ -12,6 +12,8 @@
     var $textArray = [];
     var newArray = [];
     var $resultsSection = $('#results-section');
+    var $portions = $('.portions');
+    var portion = 0.4;
 
     function convertNoun(responseData, indexNumber) {
       var arrayLength = responseData.noun.syn.length - 1;
@@ -102,7 +104,7 @@
       }
       else {
         for (var i = 0; i < length; i++) {
-          if (Math.random() < 0.4) {
+          if (Math.random() < portion) {
             convertWord($textArray[i], i);
           }
           else {
@@ -117,5 +119,24 @@
       $('textarea').val($('#results')[0].textContent);
       $('#results').remove();
     });
+
+    $portions.on('click', function(e) {
+      var target = e.target;
+
+      $portions[0].style.borderRight = 'none';
+      $portions[1].style.borderRight = 'none';
+      $portions[2].style.borderRight = 'none';
+      target.style.borderRight = '5px solid white';
+      if (target.id === 'onethird') {
+        portion = 0.4;
+      }
+      else if (target.id === 'twothirds') {
+        portion = 0.67;
+      }
+      else if (target.id === 'threethirds') {
+        portion = 1;
+      }
+    });
+
   });
 })();
