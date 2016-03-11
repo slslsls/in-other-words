@@ -102,6 +102,8 @@
 
     function setTextAreaBG() {
       $('textarea')[0].style.backgroundColor = 'white';
+      $('textarea')[0].style.borderLeft = '40px solid white';
+      $('textarea')[0].style.borderRight = '30px solid white';
     }
 
     $('#convert').on('click', function() {
@@ -110,6 +112,8 @@
       newArray = [];
       if ($('textarea').val() === '') {
         $('textarea')[0].style.backgroundColor = 'red';
+        $('textarea')[0].style.borderLeft = '40px solid red';
+        $('textarea')[0].style.borderRight = '30px solid red';
         $('textarea')[0].focus();
         window.setTimeout(setTextAreaBG, 300);
       }
