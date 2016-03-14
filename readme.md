@@ -13,9 +13,10 @@
     * [Codebase](github repo url)
   ```
 
-Video demo: https://youtu.be/ptjTyg1e3yc
-
 * Commit, push, and submit a pull request
+
+
+Video demo: https://youtu.be/ptjTyg1e3yc
 
 Project Write-up:
 
