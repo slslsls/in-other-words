@@ -1,19 +1,4 @@
-# G21 Projects
-
-* Q1 - [Personal Frontend Projects](./q1-personal-frontend.md)
-
-### How to update your project's URL
-
-* Fork, clone
-* Find your name and edit that line like follows:
-
-  ```md
-  * Spencer Scarpelli
-    * [name of project](url)
-    * [Codebase](github repo url)
-  ```
-
-* Commit, push, and submit a pull request
+url: http://spencerscarpelli-inotherwords.surge.sh
 
 
 Video demo: https://youtu.be/ptjTyg1e3yc
