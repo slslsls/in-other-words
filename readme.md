@@ -1,8 +1,5 @@
 url: http://spencerscarpelli-inotherwords.surge.sh
 
-
-Video demo: https://youtu.be/ptjTyg1e3yc
-
 Project Write-up:
 
 For this project, I built a web app that takes text and transforms it by replacing a portion of it with synonyms. The page has two text boxes, one for the source text and one for results. The results can be loaded back into the input box to reiterate the transformation.
